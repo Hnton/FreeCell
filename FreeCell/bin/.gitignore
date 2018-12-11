@@ -8,6 +8,7 @@
 /Table_GUI$2.class
 /Table_GUI$3.class
 /Table_GUI.class
+/TestDriver.class
 /Value.class
 /Welcome_GUI$1.class
 /Welcome_GUI$2.class
@@ -16,3 +17,4 @@
 /cardPileFoundation.class
 /cardPileFreeCell.class
 /cardPileTableau.class
+/FreeCellTestDriver.class

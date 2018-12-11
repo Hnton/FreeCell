@@ -1,7 +1,11 @@
+/*
+ * 
+ */
+public class cardPileTableau extends cardPile 
+{
 
-public class cardPileTableau extends cardPile {
-
-	@Override public boolean rulesForAddingCard(Card card)
+	@Override 
+	public boolean rulesForAddingCard(Card card)
 	{
 		if(this.size() == 0 ||
 				(this.peek().getValue().ordinal() - 1 == card.getValue().ordinal() &&

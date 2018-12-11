@@ -1,6 +1,7 @@
 import java.util.*;
 
-public class Deck extends cardPile{
+public class Deck extends cardPile
+{
 
 	public Deck() 
 	{
@@ -13,7 +14,6 @@ public class Deck extends cardPile{
 			}
 		}
 	shuffle();
-	}
-	
+	}	
 
 }

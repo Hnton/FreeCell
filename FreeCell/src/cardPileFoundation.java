@@ -1,8 +1,11 @@
-
-public class cardPileFoundation extends cardPile {
-
+/*
+ * 
+ */
+public class cardPileFoundation extends cardPile 
+{
 	
-	@Override public boolean rulesForAddingCard(Card card)
+	@Override 
+	public boolean rulesForAddingCard(Card card)
 	{
 		if((this.size() == 0) && (card.getValue() == Value.Ace))
 		{

@@ -8,7 +8,7 @@ public class GameModel implements Iterable<cardPile>{
 	private cardPile[] foundation;
 	private cardPile[] freeCells;
 	
-	private ArrayList<cardPile> allPiles;
+	private ArrayList<cardPile> allPiles; 
 	
 	private Stack<cardPile> undoStack = new Stack<cardPile>();
 	

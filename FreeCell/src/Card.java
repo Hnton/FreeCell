@@ -1,39 +1,25 @@
 /**
  * Card class to initialize a card for the deck
- * @author Mikael Hinton
+ * @author Mikael Hinton & Brian Belcher
  *
  */
-public class Card {
+public class Card 
+{
 	
 	private int valueNum;	// Value of card
 	private Value value;	// Rank enum
 	private Suit suit;	// Suit enum
 	private String color; // SuitColor enum
-	private boolean visible = true; // Used to show or hide the first card dealt
+//	private boolean visible = true; // Used to show or hide the first card dealt
 	
 	/**
 	 * Constructor
 	 */
-	public Card(Value v, Suit s) {
+	public Card(Value v, Suit s) 
+	{
 		value = v;
 		suit = s;
-	}
-
-	/**
-	 * Changes the card to hide by boolean
-	 */
-	protected void hide()
-	{
-		visible = false;
-	}// End of hide
-	
-	/**
-	 * Changes the card to show by boolean
-	 */
-	protected void show()
-	{
-		visible = true;
-	}// End of show
+	}	
 	
 	/**
 	 * returns the value in int form
@@ -132,11 +118,11 @@ public class Card {
 	 */
 	public String toString()
 	{
-		if(visible == false)
-		{
-			return "Bicycle";
-		}
-		else
+//		if(visible == false)
+//		{
+//			return "Bicycle";
+//		}
+//		else
 		{
 		return value + " of " + suit;
 		}

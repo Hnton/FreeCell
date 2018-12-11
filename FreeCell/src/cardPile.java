@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
-public class cardPile implements Iterable<Card>{
+public class cardPile implements Iterable<Card>{ 
 
 	private ArrayList<Card> card = new ArrayList<Card>();
 	
@@ -52,8 +52,6 @@ public class cardPile implements Iterable<Card>{
 	public Iterator<Card> iterator() 
 	{
 		return card.iterator();
-	}
-	
-	
+	}	
 	
 }
