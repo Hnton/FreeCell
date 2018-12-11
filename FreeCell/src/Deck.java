@@ -2,7 +2,8 @@ import java.util.*;
 
 public class Deck extends cardPile
 {
-
+	public int count = 0; 
+	
 	public Deck() 
 	{
 		for(Suit s : Suit.values())
@@ -11,9 +12,15 @@ public class Deck extends cardPile
 			{
 				Card c = new Card(v, s);
 				this.push(c);
+				count++; 
 			}
 		}
 	shuffle();
 	}	
-
+	
+	public int size()
+	{
+		return count; 
+	}
+	
 }
