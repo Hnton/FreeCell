@@ -11,10 +11,10 @@ public class FreeCellTestDriver
 	{		
 //		cardTest(); 				//Done 		
 //		cardPileTest(); 			//Mostly done
-//		cardPileFoundationTest();	//???
-//		cardPileFreeCellTest(); 
-//		cardPileTableauTest();
-		deckTest(); 
+		cardPileFoundationTest();	//Done
+		cardPileFreeCellTest(); 
+		cardPileTableauTest();
+//		deckTest(); 				//Done
 	}
 	
 	/**
@@ -152,12 +152,20 @@ public class FreeCellTestDriver
 	 */
 	public static void cardPileFoundationTest() 
 	{
+		//Cards to test
+		Card crdTst1 = new Card (Value.Ace, Suit.Spades);
+		Card crdTst2 = new Card (Value.Deuce, Suit.Hearts);
+		Card crdTst3 = new Card (Value.Three, Suit.Clubs);
+		Card crdTst4 = new Card (Value.Four, Suit.Diamonds);
+		
+		//New object
 		cardPileFoundation crdFnd = new cardPileFoundation();
-				
-		Card crdFndTst1 = new Card (Value.Ace, Suit.Spades);
-				
-		//Not sure what to do with this. 
-//		System.out.println("print is: " + rulesForAddingCard(crdFndTst1)); 
+		
+		System.out.println();
+		
+		
+		
+		 
 	}
 	
 	/*
@@ -165,7 +173,16 @@ public class FreeCellTestDriver
 	 */
 	public static void cardPileFreeCellTest()
 	{
-		//Not sure how to test this
+		//Cards to test
+		Card crdTst1 = new Card (Value.Ace, Suit.Spades);
+		Card crdTst2 = new Card (Value.Deuce, Suit.Hearts);
+		Card crdTst3 = new Card (Value.Three, Suit.Clubs);
+		Card crdTst4 = new Card (Value.Four, Suit.Diamonds);
+		
+		//New object
+		cardPileFreeCell crdPleFc = new cardPileFreeCell(); 
+		
+		System.out.println();
 	}
 	
 	/*
@@ -173,7 +190,25 @@ public class FreeCellTestDriver
 	 */
 	public static void cardPileTableauTest()
 	{
-		//Not sure how to test this
+		//Cards to test
+		Card crdTst1 = new Card (Value.Ace, Suit.Spades);
+		Card crdTst2 = new Card (Value.Deuce, Suit.Hearts);
+		Card crdTst3 = new Card (Value.Three, Suit.Clubs);
+		Card crdTst4 = new Card (Value.Four, Suit.Diamonds);
+		
+		//New object
+		cardPileTableau crdpleTB = new cardPileTableau();		 
+		
+		System.out.println("\n************CardPileTableau Test************");
+		System.out.println("Adding the (black) Ace of Spades to Tableau");		
+		System.out.println("Test is: " + crdpleTB.rulesForAddingCard(crdTst1)); 
+		crdpleTB.push(crdTst1);
+		
+		System.out.println("Size is: " + crdpleTB.size()); 
+//		System.out.println("Iterator is: " + crdpleTB.iterator()); 
+		
+		
+		
 	}
 	
 	/*
@@ -183,9 +218,7 @@ public class FreeCellTestDriver
 	{
 		Deck dck = new Deck();		
 		
-		System.out.println("Deck is: " + dck.size()); 
-				
-		
-	}
-	
+		System.out.println("\n************Deck Method Test, will test the number of items************");
+		System.out.println("Deck is: " + dck.size()); 		
+	}	
 }
