@@ -1,24 +1,28 @@
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Stack;
-
+/**
+ * Game model that creates the game and has the reset method, creates the cardPiles,
+ * method that moves the cards
+ */
 public class GameModel implements Iterable<cardPile>{
 
-	private cardPile[] tableau;
-	private cardPile[] foundation;
-	private cardPile[] freeCells;
+	private cardPileTableau[] tableau;
+	private cardPileFoundation[] foundation;
+	private cardPileFreeCell[] freeCells;
 	
 	private ArrayList<cardPile> allPiles; 
 	
-	private Stack<cardPile> undoStack = new Stack<cardPile>();
 	
+	/**
+	 * Creates the empty cardPiles and resets them
+	 */
 	public GameModel()
 	{
 		allPiles = new ArrayList<cardPile>();
 		
-		freeCells = new cardPile[4];
-		tableau = new cardPile[8];
-		foundation = new cardPile[4];
+		freeCells = new cardPileFreeCell[4];
+		tableau = new cardPileTableau[8];
+		foundation = new cardPileFoundation[4];
 		
 		// Creating empty piles for foundation
 		for(int i = 0; i < foundation.length; i++)
@@ -30,7 +34,7 @@ public class GameModel implements Iterable<cardPile>{
 		// Creating empty piles for foundation
 		for(int i = 0; i < freeCells.length; i++)
 		{
-			freeCells[i] = new cardPileFoundation();
+			freeCells[i] = new cardPileFreeCell();
 			allPiles.add(freeCells[i]);
 		}
 		
@@ -43,6 +47,9 @@ public class GameModel implements Iterable<cardPile>{
 	reset();
 	}
 	
+	/**
+	 * Resets the game
+	 */
 	public void reset()
 	{
 		Deck deck = new Deck();
@@ -59,9 +66,17 @@ public class GameModel implements Iterable<cardPile>{
 		{
 			tableau[whichPile].push(card);
 			whichPile = (whichPile + 1) % tableau.length;
+			
+			
 		}
 	}
 
+	/**
+	 * Moves the card from pile to pile
+	 * @param source
+	 * @param destination
+	 * @return
+	 */
 	public boolean moveCardFromPileToPile(cardPile source, cardPile destination)
 	{
 		boolean res = false;
@@ -72,48 +87,75 @@ public class GameModel implements Iterable<cardPile>{
 			{
 				destination.push(card);
 				source.pop();
-				undoStack.push(source);
-				undoStack.push(destination);
 				res = true;
 			}
 		}
 	return res;
 	}
 
+	/**
+	 * iterates through the piles
+	 */
 	@Override
 	public Iterator<cardPile> iterator() 
 	{
 		return allPiles.iterator();
 	}
 	
-	public cardPile getTableauPile(int i)
+	/**
+	 * Gets the tableau Pile
+	 * @param i
+	 * @return
+	 */
+	public cardPileTableau getTableauPile(int i)
 	{
-		return (cardPile) allPiles.iterator();
+		return getTableauPiles()[i];
 	}
 	
-	public cardPile[] getTableauPiles()
+	/**
+	 * Gets all of the tableau piles
+	 * @return
+	 */
+	public cardPileTableau[] getTableauPiles()
 	{
 		return tableau;
 	}
 	
+	/**
+	 * Gets all of the freecell piles
+	 * @return
+	 */
 	public cardPile[] getFreeCellPiles()
 	{
 		return freeCells;
 	}
 	
+	/**
+	 * Gets the tableau pile
+	 * @param i
+	 * @return
+	 */
 	public cardPile getFreeCellPile(int i)
 	{
-		return freeCells[i];
+		return getFreeCellPiles()[i];
 	}
 	
+	/**
+	 * Gets all of the foundation piles
+	 * @return
+	 */
 	public cardPile[] getFoundationPiles()
 	{
 		return foundation;
 	}
 	
+	/**
+	 * Gets the foundation pile
+	 * @param i
+	 * @return
+	 */
 	public cardPile  getFoundationPile(int i)
 	{
-		return foundation[i];
+		return getFoundationPiles()[i];
 	}
-	
 }

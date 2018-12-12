@@ -9,12 +9,12 @@ public class FreeCellTestDriver
 
 	public static void main(String[] args) 
 	{		
-//		cardTest(); 				//Done 		
-//		cardPileTest(); 			//Mostly done
+		cardTest(); 				//Done 		
+		cardPileTest(); 			//Done
 		cardPileFoundationTest();	//Done
-		cardPileFreeCellTest(); 
-		cardPileTableauTest();
-//		deckTest(); 				//Done
+		cardPileFreeCellTest();		//Done 
+		cardPileTableauTest();		//Done
+		deckTest(); 				//Done
 	}
 	
 	/**
@@ -75,6 +75,8 @@ public class FreeCellTestDriver
 		System.out.println("\nColor of Card 2 should be Red.\nActual result: " + crdTst2.getColor());
 		System.out.println("\nColor of Card 7 should be Black.\nActual result: " + crdTst7.getColor());
 		System.out.println("\nColor of Card 12 should be Red.\nActual result: " + crdTst12.getColor());
+		
+		System.out.println("**********End of Card Class Test**********\n");
 	}
 	
 	/**
@@ -82,69 +84,62 @@ public class FreeCellTestDriver
 	 */
 	public static void cardPileTest()
 	{
-		//Test parameters*********************************Needs work************************
-		Card crd1 = null;
-		Card crd2 = null;
+		//Test parameters
+		Card crdTst1 = new Card (Value.Ace, Suit.Spades);
+		Card crdTst2 = new Card (Value.Ace, Suit.Hearts);		
+		Card crdTst3 = new Card (Value.Ace, Suit.Clubs);
+		Card crdTst4 = new Card (Value.Ace, Suit.Diamonds);
 		
 		//New Object		
 		cardPile crdPile = new cardPile ();		
 		
 		//Beginning of Stack Tests		
-		System.out.println("\n***********New Stack created************");
+		System.out.println("\n************CardPile Test************");
 		
-		System.out.println("\n**************Size Test**************");
+		System.out.println("**************Size Test**************");
 		System.out.println("Size test should return 0.\nActual result: " + crdPile.size());
 		
 		System.out.println("\n************Push Method Test************");
-		System.out.println("Object added via push method.");
-		crdPile.push(crd1);
-		System.out.println("Size test should now return 1.\nActual result: " + crdPile.size());	
-		
-//******Need to very object type and value*****************************
+		System.out.println("2 Objects added via push method.");
+		crdPile.push(crdTst1);
+		crdPile.push(crdTst2);
+		System.out.println("Current cards: \n" + crdPile.toString());		
+
 		System.out.println("\n************Peek Method Test*************");
-		System.out.println("Calling peek method, which will retrieve the top object, but not delete it.");		 
-//		try 
-//		{
-			
-//*****************Need to be able to print items and shuffle to verify functionality		
-		
-			System.out.println("Peek should retrieve crd1.\nActual result: " + crdPile.peek());
-//		}
-//		catch (StackException e) //Test will skip this catch 
-//		{
-//			e.printStackTrace();
-//		}
-		System.out.println("\nSize test should now return 1.\nActual result: " + crdPile.size());
-		
-		System.out.println("\n************Pop Method Test*************");
-		System.out.println("Calling pop method, which will retrieve and remove object from the stack.");
-//		try 
-//		{
-			crdPile.pop();
-//		} 
-//		catch (StackException e) //Test will skip this catch 
-//		{		
-//			e.printStackTrace();
-//		}		
-		System.out.println("Size test should now return 0.\nActual result: " + crdPile.size());		
-				
+		System.out.println("Calling peek method, which will retrieve the top object, but not delete it.");
+		System.out.println("Current size should return 2.\nActual result: " + crdPile.size());
+		System.out.println("Peek should retrieve Ace of Hearts.\nActual result: " + crdPile.peek());
+		System.out.println("Current size after peek should still return 2.\nActual result: " + crdPile.size());		
 		
 		System.out.println("\n************Clear Method Test************");
-		System.out.println("2 Objects added via push method.");
-		crdPile.push(crd1);
-		crdPile.push(crd2);
-		System.out.println("Size test should now return 2.\nActual result: " + crdPile.size());
+//		System.out.println("Current cards: \n" + crdPile.toString());
+		System.out.println("Size test should still return 2.\nActual result: " + crdPile.size());
 		
 		System.out.println("Now calling the Clear method.");
 		crdPile.clear(); 
 		System.out.println("Size test should now return 0.\nActual result: " + crdPile.size());		
-		
-		//Don't know how this one works
-//		rulesForAddingCard(crdPile);
-		
-		//Don't know how to test this either
-//		iterator(); 		
 				
+//		System.out.println("\n************Pop Method Test*************");
+				
+		
+		System.out.println("\n************Shuffle Method Test************");		
+		System.out.println("4 Objects added via push method.");
+		crdPile.push(crdTst1);
+		crdPile.push(crdTst2);
+		crdPile.push(crdTst3);
+		crdPile.push(crdTst4);
+		System.out.println("Current cards: \n" + crdPile.toString());
+		System.out.println("Now shuffling");
+		crdPile.shuffle();
+		System.out.println("Current cards after shuffle: \n" + crdPile.toString());		
+		
+		System.out.println("\n************Pop Method Test*************");
+		System.out.println("Calling pop method, which will remove object from the stack.");
+		System.out.println("Size test before pop should be 4.\nActual result: " + crdPile.size());
+		crdPile.pop();				
+		System.out.println("Size test after pop should be 3.\nActual result: " + crdPile.size());	
+		
+		System.out.println("**********End of cardPileTest Test**********\n");
 	}	
 		
 	/*
@@ -154,18 +149,37 @@ public class FreeCellTestDriver
 	{
 		//Cards to test
 		Card crdTst1 = new Card (Value.Ace, Suit.Spades);
-		Card crdTst2 = new Card (Value.Deuce, Suit.Hearts);
-		Card crdTst3 = new Card (Value.Three, Suit.Clubs);
-		Card crdTst4 = new Card (Value.Four, Suit.Diamonds);
+		Card crdTst2 = new Card (Value.Ace, Suit.Hearts);
+		Card crdTst3 = new Card (Value.Deuce, Suit.Spades);
+		Card crdTst4 = new Card (Value.Three, Suit.Hearts);
+		Card crdTst5 = new Card (Value.Four, Suit.Spades);
 		
 		//New object
 		cardPileFoundation crdFnd = new cardPileFoundation();
 		
-		System.out.println();
+		System.out.println("\n************CardPileFoundation Test************");		
+		System.out.println("Test to see if we can add Four of Spades to the Foundation.\nExpected result is false.\nActual result: " + crdFnd.rulesForAddingCard(crdTst5));		
 		
+		System.out.println("\nTest to see if we can add Ace of Spades to the Foundation.\nExpected result is true.\nActual result: " + crdFnd.rulesForAddingCard(crdTst1));
+		System.out.println("Now adding the Ace of Spades to the Foundation.");		
+		crdFnd.push(crdTst1);
+		System.out.println("Current cards: \n" + crdFnd.toString() + "\n");
 		
+		System.out.println("Test to see if we can add Ace of Hearts to the Foundation.\nExpected result is false.\nActual result: " + crdFnd.rulesForAddingCard(crdTst2));				
+		System.out.println("Current cards: \n" + crdFnd.toString() + "\n");
 		
-		 
+		System.out.println("Test to see if we can add the Deuce of Spades to the Foundation.\nExpected result is true.\nActual result: " + crdFnd.rulesForAddingCard(crdTst3));
+		System.out.println("Now adding Deuce of Spades to Foundation");
+		crdFnd.push(crdTst3);
+		System.out.println("Current cards: \n" + crdFnd.toString() + "\n");
+		
+		System.out.println("Test to see if we can add a 3 of Hearts to the Foundation.\nExpected result is false.\nActual result: " + crdFnd.rulesForAddingCard(crdTst4));
+		System.out.println("Current cards: \n" + crdFnd.toString() + "\n");
+		
+		System.out.println("Test to see if we can add a 4 of Spades to the Foundation.\nExpected result is false.\nActual result: " + crdFnd.rulesForAddingCard(crdTst5));
+		System.out.println("Current cards: \n" + crdFnd.toString());		
+		
+		System.out.println("**********End of CardPileFoundation Test**********\n");		 
 	}
 	
 	/*
@@ -173,16 +187,21 @@ public class FreeCellTestDriver
 	 */
 	public static void cardPileFreeCellTest()
 	{
-		//Cards to test
+		//Test cards
 		Card crdTst1 = new Card (Value.Ace, Suit.Spades);
-		Card crdTst2 = new Card (Value.Deuce, Suit.Hearts);
-		Card crdTst3 = new Card (Value.Three, Suit.Clubs);
-		Card crdTst4 = new Card (Value.Four, Suit.Diamonds);
+		Card crdTst2 = new Card (Value.Deuce, Suit.Spades);		
 		
 		//New object
-		cardPileFreeCell crdPleFc = new cardPileFreeCell(); 
+		cardPileFreeCell crdPilFC = new cardPileFreeCell();
 		
-		System.out.println();
+		System.out.println("\n************CardPileFreeCell Test************");		
+		System.out.println("Test to see if we can add Ace of Spades to the Free Cell.\nExpected result is true.\nActual result: " + crdPilFC.rulesForAddingCard(crdTst1));
+		System.out.println("Now adding Ace to the FreeCell");		
+		crdPilFC.push(crdTst1);
+		System.out.println("Current cards: \n" + crdPilFC.toString() + "\n");
+		
+		System.out.println("Test to see if we can add the Deuce of Spades to the FreeCell.\nExpected result is false.\nActual result: " + crdPilFC.rulesForAddingCard(crdTst2));
+		System.out.println("**********End of CardPileFreeCell Test**********\n");	
 	}
 	
 	/*
@@ -191,24 +210,42 @@ public class FreeCellTestDriver
 	public static void cardPileTableauTest()
 	{
 		//Cards to test
-		Card crdTst1 = new Card (Value.Ace, Suit.Spades);
-		Card crdTst2 = new Card (Value.Deuce, Suit.Hearts);
-		Card crdTst3 = new Card (Value.Three, Suit.Clubs);
-		Card crdTst4 = new Card (Value.Four, Suit.Diamonds);
+		Card crdTst1 = new Card (Value.Ten, Suit.Spades);
+		Card crdTst2 = new Card (Value.Nine, Suit.Diamonds);
+		Card crdTst3 = new Card (Value.Ten, Suit.Clubs);
+		Card crdTst4 = new Card (Value.Jack, Suit.Hearts);
+		Card crdTst5 = new Card (Value.Eight, Suit.Hearts);
+		Card crdTst6 = new Card (Value.Eight, Suit.Clubs);
 		
 		//New object
-		cardPileTableau crdpleTB = new cardPileTableau();		 
+		cardPileTableau crdPlTab = new cardPileTableau();
 		
-		System.out.println("\n************CardPileTableau Test************");
-		System.out.println("Adding the (black) Ace of Spades to Tableau");		
-		System.out.println("Test is: " + crdpleTB.rulesForAddingCard(crdTst1)); 
-		crdpleTB.push(crdTst1);
+		System.out.println("\n************cardPileTableau Test************");		
+		crdPlTab.rulesForAddingCard(crdTst1);		
+		System.out.println("Verifying Tableau is empty: " + crdPlTab.size());		
+		System.out.println("Adding ten of Spades is on the Tableau");
+		crdPlTab.push(crdTst1);
+		System.out.println("Current cards: \n" + crdPlTab.toString() + "\n");
 		
-		System.out.println("Size is: " + crdpleTB.size()); 
-//		System.out.println("Iterator is: " + crdpleTB.iterator()); 
+		System.out.println("Test to see if we can add Nine of Diamonds to the Tableau.\nExpected result is true.\nActual result: " + crdPlTab.rulesForAddingCard(crdTst2));
+		System.out.println("Now adding Nine of Diamonds to the Tableau");
+		crdPlTab.push(crdTst2);
+		System.out.println("Current cards: \n" + crdPlTab.toString() + "\n");
 		
+		System.out.println("Test to see if we can add the Ten of Clubs to the Tableau.\nExpected result is false.\nActual result: " + crdPlTab.rulesForAddingCard(crdTst3));
+		System.out.println("Current cards: \n" + crdPlTab.toString() + "\n");
 		
+		System.out.println("Test to see if we can add a Jack of Hearts to the Tableau.\nExpected result is false.\nActual result: " + crdPlTab.rulesForAddingCard(crdTst4));
+		System.out.println("Current cards: \n" + crdPlTab.toString() + "\n");
 		
+		System.out.println("Test to see if we can add a Eight of Hearts to the Tableau.\nExpected result is false.\nActual result: " + crdPlTab.rulesForAddingCard(crdTst5));		
+		System.out.println("Current cards: \n" + crdPlTab.toString() + "\n");
+		
+		System.out.println("Test to see if we can add a Eight of Clubs to the Tableau.\nExpected result is true.\nActual result: " + crdPlTab.rulesForAddingCard(crdTst6));
+		crdPlTab.push(crdTst5);
+		System.out.println("Current cards: \n" + crdPlTab.toString());		
+		
+		System.out.println("**********End of cardPileTableau Test**********\n");		
 	}
 	
 	/*
@@ -216,9 +253,16 @@ public class FreeCellTestDriver
 	 */
 	public static void deckTest()
 	{
+		//New object
 		Deck dck = new Deck();		
 		
-		System.out.println("\n************Deck Method Test, will test the number of items************");
-		System.out.println("Deck is: " + dck.size()); 		
+		System.out.println("\n************Deck Test************");
+//		System.out.println("Deck is: " + dck.size());
+		
+		System.out.println("Current cards: \n" + dck.toString() + "\n");
+		
+		System.out.println("Current desk size should be 52.\nActual result: " + dck.size());
+		
+		System.out.println("*********End of Deck Test*********\n");
 	}	
 }

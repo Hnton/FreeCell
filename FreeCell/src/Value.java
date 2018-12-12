@@ -1,4 +1,8 @@
-
+/**
+ * Enum for the values of the cards
+ * @author Mikael Hinton  & Brian Belcher
+ *
+ */
 public enum Value{
 
 	Ace,

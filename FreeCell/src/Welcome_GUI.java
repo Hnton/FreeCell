@@ -1,24 +1,11 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JTextField;
 import javax.swing.JButton;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import net.miginfocom.swing.MigLayout;
-import javax.swing.SpringLayout;
-import javax.swing.BoxLayout;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormSpecs;
-import com.jgoodies.forms.layout.RowSpec;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.FlowLayout;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.Box;
@@ -26,8 +13,17 @@ import java.awt.Component;
 import java.awt.Dimension;
 import javax.swing.JLabel;
 
+/**
+ * Welcome GUI for FreeCell
+ * @author Mikael Hinton & Brian Belcher
+ *
+ */
 public class Welcome_GUI extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
@@ -63,8 +59,7 @@ public class Welcome_GUI extends JFrame {
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				Table_GUI t = new Table_GUI();
-				t.TableScreen();
+				Table_GUI.TableScreen();
 				
 			}
 		});

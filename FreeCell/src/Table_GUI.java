@@ -9,8 +9,17 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 
+/**
+ * Table GUI for FreeCell
+ * @author Mikael Hinton & Brian Belcher
+ *
+ */
 public class Table_GUI extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
@@ -52,8 +61,7 @@ public class Table_GUI extends JFrame {
 		btnGameRules.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				GameRules_GUI GR = new GameRules_GUI();
-				GR.GameRulesScreen();
+				GameRules_GUI.GameRulesScreen();
 			}
 		});
 		btnGameRules.setBounds(473, 13, 113, 25);

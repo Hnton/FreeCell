@@ -1,20 +1,26 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JTextArea;
-import javax.swing.JTextPane;
 import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
+/**
+ * GUI RULES
+ * @author Mikael Hinton & Brian Belcher
+ *
+ */
 public class GameRules_GUI extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**

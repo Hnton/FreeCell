@@ -1,9 +1,14 @@
-/*
- * 
+/**
+ * Extends the cardPile and is used for the rules for adding and removing cards to the foundation
+ * @author Mikael Hinton & Brian Belcher
+ *
  */
 public class cardPileFoundation extends cardPile 
 {
 	
+	/**
+	 * Rules for adding a card to the foundation
+	 */
 	@Override 
 	public boolean rulesForAddingCard(Card card)
 	{

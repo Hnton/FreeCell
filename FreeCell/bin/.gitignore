@@ -1,14 +1,11 @@
-/Card.class
-/Deck.class
-/GameModel.class
+/cardImages/
+/FreeCellTestDriver.class
 /GameRules_GUI$1.class
 /GameRules_GUI.class
-/Suit.class
 /Table_GUI$1.class
 /Table_GUI$2.class
 /Table_GUI$3.class
 /Table_GUI.class
-/TestDriver.class
 /Value.class
 /Welcome_GUI$1.class
 /Welcome_GUI$2.class
@@ -17,4 +14,8 @@
 /cardPileFoundation.class
 /cardPileFreeCell.class
 /cardPileTableau.class
-/FreeCellTestDriver.class
+/Client.class
+/Engine.class
+/GARYOPENTHISONE.class
+/ConsoleGame.class
+/ConsoleGameEngine.class

@@ -10,7 +10,6 @@ public class Card
 	private Value value;	// Rank enum
 	private Suit suit;	// Suit enum
 	private String color; // SuitColor enum
-//	private boolean visible = true; // Used to show or hide the first card dealt
 	
 	/**
 	 * Constructor
@@ -100,6 +99,10 @@ public class Card
 		return suit;
 	}
 	
+	/**
+	 * Returns the color of the suit when needed
+	 * @return
+	 */
 	protected String getColor()
 	{
 		if(suit == Suit.Spades || suit == Suit.Clubs)
